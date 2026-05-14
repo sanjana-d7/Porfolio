@@ -78,7 +78,7 @@ const projects = [
       'Containerized deployment and scalable inference endpoints in cloud environments.',
     ],
     demoUrl: null,
-    githubUrl: projectRepo('LangChain-Project'),
+    githubUrl: projectRepo('LangChain-Project-'),
   },
   {
     title: 'LLM Chatbot & Text Summarizer',
