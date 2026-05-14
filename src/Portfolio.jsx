@@ -78,7 +78,7 @@ const projects = [
       'Containerized deployment and scalable inference endpoints in cloud environments.',
     ],
     demoUrl: null,
-    githubUrl: projectRepo('LangChain-Project-'),
+    githubUrl: projectRepo('LangChain-Project'),
   },
   {
     title: 'LLM Chatbot & Text Summarizer',
@@ -102,7 +102,7 @@ const projects = [
       'Reduces manual test authoring while keeping outputs structured for engineering teams.',
     ],
     demoUrl: null,
-    githubUrl: projectRepo('AITESTGEN-'),
+    githubUrl: projectRepo('AITESTGEN'),
   },
   {
     title: 'MavAdvisor — AI-Assisted Academic Planning Platform',
@@ -598,18 +598,7 @@ const Portfolio = () => {
                 key={project.title}
                 className={`corner-tech group relative flex flex-col rounded-3xl border border-rose-100 bg-white/85 p-7 shadow-xl shadow-rose-100/50 backdrop-blur-md transition hover:border-fuchsia-200/80 hover:shadow-glow-fuchsia dark:border-white/10 dark:bg-slate-900/55 dark:shadow-black/40 dark:hover:border-fuchsia-500/50${project.githubUrl ? ' cursor-pointer' : ''}`}
               >
-                {project.githubUrl ? (
-                  <a
-                    href={project.githubUrl}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="absolute inset-0 z-[1] rounded-3xl outline-offset-[-2px] focus-visible:outline focus-visible:outline-2 focus-visible:outline-fuchsia-500"
-                    aria-label={`View ${project.title} on GitHub (opens new tab)`}
-                  />
-                ) : null}
-                <div
-                  className={`relative flex min-h-[12rem] flex-1 flex-col ${project.githubUrl ? 'pointer-events-none z-[2]' : ''}`}
-                >
+                <div className="relative flex min-h-[12rem] flex-1 flex-col">
                   <h3 className="font-display text-xl font-semibold text-rose-950 transition group-hover:text-fuchsia-900 dark:text-rose-100 dark:group-hover:text-fuchsia-300">
                     {project.title}
                   </h3>
@@ -627,7 +616,7 @@ const Portfolio = () => {
                   </ul>
                 </div>
                 {project.demoUrl && (
-                  <div className="relative z-[3] mt-6 flex flex-wrap gap-4 border-t border-rose-100 bg-white/85 pt-5 text-sm font-semibold text-rose-600 dark:border-white/10 dark:bg-slate-900/80 dark:text-fuchsia-400">
+                  <div className="relative z-[15] mt-6 flex flex-wrap gap-4 border-t border-rose-100 bg-white/85 pt-5 text-sm font-semibold text-rose-600 dark:border-white/10 dark:bg-slate-900/80 dark:text-fuchsia-400">
                     <a
                       href={project.demoUrl}
                       target="_blank"
@@ -638,6 +627,17 @@ const Portfolio = () => {
                     </a>
                   </div>
                 )}
+                {project.githubUrl ? (
+                  <a
+                    href={project.githubUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className={`absolute inset-0 rounded-3xl outline-offset-[-2px] focus-visible:outline focus-visible:outline-2 focus-visible:outline-fuchsia-500 ${project.demoUrl ? 'z-[10]' : 'z-[5]'}`}
+                    aria-label={`View ${project.title} on GitHub (opens new tab)`}
+                  >
+                    <span className="sr-only">GitHub repository</span>
+                  </a>
+                ) : null}
               </article>
             ))}
           </div>
