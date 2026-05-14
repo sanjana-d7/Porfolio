@@ -1,6 +1,5 @@
 import { useState, useEffect } from 'react'
 import {
-  Github,
   Linkedin,
   Mail,
   ExternalLink,
@@ -65,6 +64,9 @@ const skillGroups = [
   },
 ]
 
+/** Repo names under https://github.com/sanjana-d7/ … (URLs are case-aware; hyphen not allowed at end of repo name on GitHub) */
+const projectRepo = (slug) => `https://github.com/sanjana-d7/${slug}`
+
 const projects = [
   {
     title: 'Conversational AI with Memory & Tools',
@@ -76,7 +78,7 @@ const projects = [
       'Containerized deployment and scalable inference endpoints in cloud environments.',
     ],
     demoUrl: null,
-    githubUrl: null,
+    githubUrl: projectRepo('LangChain-Project-'),
   },
   {
     title: 'LLM Chatbot & Text Summarizer',
@@ -88,7 +90,7 @@ const projects = [
       'Preprocessing and data cleaning to improve summary quality.',
     ],
     demoUrl: null,
-    githubUrl: null,
+    githubUrl: projectRepo('LLM-CHATBOT-SUMMARIZER'),
   },
   {
     title: 'AI Test Case & Description Generator',
@@ -100,7 +102,7 @@ const projects = [
       'Reduces manual test authoring while keeping outputs structured for engineering teams.',
     ],
     demoUrl: null,
-    githubUrl: null,
+    githubUrl: projectRepo('AITESTGEN-'),
   },
   {
     title: 'MavAdvisor — AI-Assisted Academic Planning Platform',
@@ -112,7 +114,7 @@ const projects = [
       'Shipped secure authentication, debugging tooling, and system integrations to improve reliability and UX.',
     ],
     demoUrl: null,
-    githubUrl: null,
+    githubUrl: projectRepo('MavAdvisor'),
   },
   {
     title: 'Financial Sector Gender Equality Analysis',
@@ -124,7 +126,7 @@ const projects = [
       'Visualized KPIs to surface factors affecting women’s representation in leadership.',
     ],
     demoUrl: null,
-    githubUrl: null,
+    githubUrl: projectRepo('financial-sector-gender-equality'),
   },
 ]
 
@@ -588,47 +590,52 @@ const Portfolio = () => {
             accent="cpu"
             eyebrow="Selected work"
             title="Projects from my résumé"
-            kicker="Four end-to-end builds spanning agents, LLM apps, QA automation, and equity-focused analytics."
+            kicker="Five end-to-end builds spanning agents, LLM apps, QA automation, planning tools, and equity-focused analytics."
           />
           <div className="grid gap-8 md:grid-cols-2">
             {projects.map((project) => (
               <article
                 key={project.title}
-                className="corner-tech group relative flex flex-col rounded-3xl border border-rose-100 bg-white/85 p-7 shadow-xl shadow-rose-100/50 backdrop-blur-md transition hover:border-fuchsia-200/80 hover:shadow-glow-fuchsia dark:border-white/10 dark:bg-slate-900/55 dark:shadow-black/40 dark:hover:border-fuchsia-500/50"
+                className={`corner-tech group relative flex flex-col rounded-3xl border border-rose-100 bg-white/85 p-7 shadow-xl shadow-rose-100/50 backdrop-blur-md transition hover:border-fuchsia-200/80 hover:shadow-glow-fuchsia dark:border-white/10 dark:bg-slate-900/55 dark:shadow-black/40 dark:hover:border-fuchsia-500/50${project.githubUrl ? ' cursor-pointer' : ''}`}
               >
-                <h3 className="font-display text-xl font-semibold text-rose-950 transition group-hover:text-fuchsia-900 dark:text-rose-100 dark:group-hover:text-fuchsia-300">
-                  {project.title}
-                </h3>
-                <pre className="mt-3 overflow-x-auto rounded-lg border border-rose-100/90 bg-gradient-to-r from-rose-950/[0.04] via-fuchsia-50/30 to-violet-50/40 px-3 py-2 font-mono text-[10px] leading-relaxed text-rose-800/95 md:text-[11px] dark:border-white/10 dark:from-slate-950 dark:via-fuchsia-950/30 dark:to-violet-950/30 dark:text-rose-200/90">
-                  <code>{project.stack}</code>
-                </pre>
-                <p className="mt-4 text-sm leading-relaxed text-rose-900/75 dark:text-rose-300/85">{project.summary}</p>
-                <ul className="mt-4 flex-1 space-y-2 text-sm text-rose-900/70 dark:text-rose-300/75">
-                  {project.highlights.map((h) => (
-                    <li key={h} className="flex gap-2">
-                      <span className="mt-2 h-1 w-1 shrink-0 rounded-full bg-rose-300 dark:bg-fuchsia-400" />
-                      <span>{h}</span>
-                    </li>
-                  ))}
-                </ul>
-                {(project.demoUrl || project.githubUrl) && (
-                  <div className="mt-6 flex flex-wrap gap-4 border-t border-rose-100 pt-5 text-sm font-semibold text-rose-600 dark:border-white/10 dark:text-fuchsia-400">
-                    {project.demoUrl && (
-                      <a
-                        href={project.demoUrl}
-                        className="inline-flex items-center gap-1 hover:text-rose-800 dark:hover:text-fuchsia-200"
-                      >
-                        Live demo <ExternalLink size={14} />
-                      </a>
-                    )}
-                    {project.githubUrl && (
-                      <a
-                        href={project.githubUrl}
-                        className="inline-flex items-center gap-1 hover:text-rose-800 dark:hover:text-fuchsia-200"
-                      >
-                        GitHub <Github size={14} />
-                      </a>
-                    )}
+                {project.githubUrl ? (
+                  <a
+                    href={project.githubUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="absolute inset-0 z-[1] rounded-3xl outline-offset-[-2px] focus-visible:outline focus-visible:outline-2 focus-visible:outline-fuchsia-500"
+                    aria-label={`View ${project.title} on GitHub (opens new tab)`}
+                  />
+                ) : null}
+                <div
+                  className={`relative flex min-h-[12rem] flex-1 flex-col ${project.githubUrl ? 'pointer-events-none z-[2]' : ''}`}
+                >
+                  <h3 className="font-display text-xl font-semibold text-rose-950 transition group-hover:text-fuchsia-900 dark:text-rose-100 dark:group-hover:text-fuchsia-300">
+                    {project.title}
+                  </h3>
+                  <pre className="mt-3 overflow-x-auto rounded-lg border border-rose-100/90 bg-gradient-to-r from-rose-950/[0.04] via-fuchsia-50/30 to-violet-50/40 px-3 py-2 font-mono text-[10px] leading-relaxed text-rose-800/95 md:text-[11px] dark:border-white/10 dark:from-slate-950 dark:via-fuchsia-950/30 dark:to-violet-950/30 dark:text-rose-200/90">
+                    <code>{project.stack}</code>
+                  </pre>
+                  <p className="mt-4 text-sm leading-relaxed text-rose-900/75 dark:text-rose-300/85">{project.summary}</p>
+                  <ul className="mt-4 flex-1 space-y-2 text-sm text-rose-900/70 dark:text-rose-300/75">
+                    {project.highlights.map((h) => (
+                      <li key={h} className="flex gap-2">
+                        <span className="mt-2 h-1 w-1 shrink-0 rounded-full bg-rose-300 dark:bg-fuchsia-400" />
+                        <span>{h}</span>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+                {project.demoUrl && (
+                  <div className="relative z-[3] mt-6 flex flex-wrap gap-4 border-t border-rose-100 bg-white/85 pt-5 text-sm font-semibold text-rose-600 dark:border-white/10 dark:bg-slate-900/80 dark:text-fuchsia-400">
+                    <a
+                      href={project.demoUrl}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="inline-flex items-center gap-1 hover:text-rose-800 dark:hover:text-fuchsia-200"
+                    >
+                      Live demo <ExternalLink size={14} />
+                    </a>
                   </div>
                 )}
               </article>
