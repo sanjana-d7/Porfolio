@@ -103,6 +103,18 @@ const projects = [
     githubUrl: null,
   },
   {
+    title: 'MavAdvisor — AI-Assisted Academic Planning Platform',
+    stack: 'Python · Flask · REST APIs · SQLite · HTML/CSS · OpenAI API',
+    summary:
+      'Full-stack academic planning platform with AI assistance, Flask services, SQLite storage, and OpenAI integrations.',
+    highlights: [
+      'Built scalable backend services and REST APIs with Flask and SQLite alongside distributed-application workflows.',
+      'Shipped secure authentication, debugging tooling, and system integrations to improve reliability and UX.',
+    ],
+    demoUrl: null,
+    githubUrl: null,
+  },
+  {
     title: 'Financial Sector Gender Equality Analysis',
     stack: 'Python · Pandas · Excel · Seaborn · Plotly',
     summary:
