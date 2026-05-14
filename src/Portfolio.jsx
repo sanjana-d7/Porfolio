@@ -102,7 +102,7 @@ const projects = [
       'Reduces manual test authoring while keeping outputs structured for engineering teams.',
     ],
     demoUrl: null,
-    githubUrl: projectRepo('AITESTGEN'),
+    githubUrl: projectRepo('AITESTGEN-'),
   },
   {
     title: 'MavAdvisor — AI-Assisted Academic Planning Platform',
