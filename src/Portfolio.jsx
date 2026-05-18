@@ -6,7 +6,6 @@ import {
   Sparkles,
   GraduationCap,
   Award,
-  Phone,
   MousePointerClick,
   Terminal,
   Code2,
@@ -55,6 +54,7 @@ const skillGroups = [
       'Pandas',
       'NumPy',
       'Seaborn',
+      'Matplotlib',
       'Plotly',
     ],
   },
@@ -263,7 +263,7 @@ const Portfolio = () => {
   }
 
   return (
-    <div className="relative min-h-screen overflow-hidden bg-gradient-to-b from-rose-50 via-fuchsia-50/30 to-violet-50/40 font-sans dark:from-slate-950 dark:via-slate-950 dark:to-violet-950/40">
+    <div className="relative min-h-screen overflow-x-hidden bg-gradient-to-b from-rose-50 via-fuchsia-50/30 to-violet-50/40 font-sans dark:from-slate-950 dark:via-slate-950 dark:to-violet-950/40">
       <div
         aria-hidden
         className="pointer-events-none fixed inset-0 -z-10 bg-[length:300%_300%] animate-shimmer bg-gradient-to-br from-rose-100/50 via-transparent to-violet-100/40 opacity-80 dark:from-fuchsia-950/30 dark:to-violet-950/40"
@@ -285,7 +285,7 @@ const Portfolio = () => {
         </div>
       </div>
 
-      <nav className="sticky top-0 z-50 border-b border-rose-100/60 bg-white/75 backdrop-blur-xl dark:border-white/10 dark:bg-slate-950/80 dark:shadow-[inset_0_1px_0_0_rgba(255,255,255,0.05)]">
+      <nav className="sticky top-0 z-50 shrink-0 border-b border-rose-100/60 bg-white/85 backdrop-blur-xl supports-[backdrop-filter]:bg-white/75 dark:border-white/10 dark:bg-slate-950/90 dark:supports-[backdrop-filter]:bg-slate-950/80 dark:shadow-[inset_0_1px_0_0_rgba(255,255,255,0.05)]">
         <div
           className="h-px w-full bg-gradient-to-r from-transparent via-fuchsia-400/40 to-transparent dark:via-fuchsia-400/25"
           aria-hidden
@@ -389,7 +389,7 @@ const Portfolio = () => {
             style={{ animationDelay: '0.28s' }}
           >
             {[
-              { label: 'GPA 3.812', hint: 'Cumulative' },
+              { label: 'GPA 3.8', hint: 'Cumulative' },
               { label: "Dean's List", hint: 'Fall 2023 – Present' },
               { label: 'SWE · VP', hint: 'UTA Chapter' },
             ].map((chip) => (
@@ -471,6 +471,9 @@ const Portfolio = () => {
                   University of Texas at Arlington
                 </h3>
                 <p className="mt-1 text-rose-700/85 dark:text-rose-300/90">Computer Science B.S. · August 2022 – May 2026</p>
+                <p className="mt-2 text-sm font-medium text-rose-800 dark:text-rose-200/90">
+                  Degree honors: Magna Cum Laude · Certificate in Artificial Intelligence
+                </p>
                 <p className="mt-3 max-w-prose text-sm leading-relaxed text-rose-900/70 dark:text-rose-300/80">
                   Coursework spanning data structures, operating systems, neural networks, computer vision, machine learning,
                   AI, autonomous robotics, and theory.
@@ -718,22 +721,14 @@ const Portfolio = () => {
               If the mail icon does nothing, your browser may not have a mail app set up—use <strong>Open in Gmail</strong>{' '}
               or <strong>Copy address</strong>.
             </p>
-            <div className="flex flex-col items-center gap-4 sm:flex-row sm:gap-8">
-              <a
-                href="tel:+16825533861"
-                className="flex items-center gap-2 text-sm font-medium text-rose-700 hover:text-rose-900 dark:text-rose-200 dark:hover:text-white"
-              >
-                <Phone size={18} /> +1 (682) 553-3861
-              </a>
-              <a
-                href="https://www.linkedin.com/in/sanjana-daram/"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="flex items-center gap-2 text-sm font-medium text-rose-700 hover:text-rose-900 dark:text-rose-200 dark:hover:text-white"
-              >
-                <Linkedin size={18} /> LinkedIn
-              </a>
-            </div>
+            <a
+              href="https://www.linkedin.com/in/sanjana-daram/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex items-center gap-2 text-sm font-medium text-rose-700 hover:text-rose-900 dark:text-rose-200 dark:hover:text-white"
+            >
+              <Linkedin size={18} /> LinkedIn
+            </a>
           </div>
         </div>
         <div className="mx-auto mt-12 max-w-6xl space-y-2 text-center">
