@@ -285,7 +285,7 @@ const Portfolio = () => {
         </div>
       </div>
 
-      <nav className="sticky top-0 z-50 shrink-0 border-b border-rose-100/60 bg-white/85 backdrop-blur-xl supports-[backdrop-filter]:bg-white/75 dark:border-white/10 dark:bg-slate-950/90 dark:supports-[backdrop-filter]:bg-slate-950/80 dark:shadow-[inset_0_1px_0_0_rgba(255,255,255,0.05)]">
+      <nav className="fixed inset-x-0 top-0 z-50 w-full border-b border-rose-100/60 bg-white/90 backdrop-blur-xl supports-[backdrop-filter]:bg-white/75 dark:border-white/10 dark:bg-slate-950/95 dark:supports-[backdrop-filter]:bg-slate-950/85 dark:shadow-[inset_0_1px_0_0_rgba(255,255,255,0.05)]">
         <div
           className="h-px w-full bg-gradient-to-r from-transparent via-fuchsia-400/40 to-transparent dark:via-fuchsia-400/25"
           aria-hidden
@@ -359,7 +359,7 @@ const Portfolio = () => {
         </div>
       </nav>
 
-      <header className="relative px-4 pb-24 pt-16 md:px-6 md:pt-24">
+      <header className="relative px-4 pb-24 pt-36 md:px-6 md:pt-40">
         <div className="mx-auto max-w-4xl text-center">
           <p
             className="animate-fade-up mb-6 inline-flex items-center gap-2 rounded-full border border-rose-200/80 bg-white/60 px-4 py-1.5 text-xs font-semibold uppercase tracking-widest text-rose-500 opacity-0 [animation-delay:0.05s] [animation-fill-mode:forwards] dark:border-rose-500/30 dark:bg-slate-900/60 dark:text-rose-300"
@@ -419,7 +419,7 @@ const Portfolio = () => {
         </div>
       </header>
 
-      <section id="skills" className="scroll-mt-24 px-4 py-16 md:px-6">
+      <section id="skills" className="scroll-mt-28 px-4 py-16 md:scroll-mt-32 md:px-6">
         <div className="mx-auto max-w-6xl">
           <SectionTitle
             className="mb-12"
@@ -458,7 +458,7 @@ const Portfolio = () => {
 
       <section
         id="education"
-        className="scroll-mt-24 border-y border-rose-100/70 bg-white/40 px-4 py-16 backdrop-blur-sm dark:border-white/10 dark:bg-slate-950/40 md:px-6"
+        className="scroll-mt-28 border-y border-rose-100/70 bg-white/40 px-4 py-16 backdrop-blur-sm dark:border-white/10 dark:bg-slate-950/40 md:scroll-mt-32 md:px-6"
       >
         <div className="mx-auto max-w-6xl">
           <div className="corner-tech relative flex flex-col gap-8 rounded-3xl border border-rose-100/80 bg-gradient-to-br from-white/90 to-rose-50/50 p-8 shadow-inner shadow-rose-100/50 md:flex-row md:items-center md:justify-between dark:border-white/10 dark:from-slate-900/80 dark:to-fuchsia-950/20 dark:shadow-[inset_0_1px_0_0_rgba(255,255,255,0.04)]">
@@ -490,7 +490,7 @@ const Portfolio = () => {
         </div>
       </section>
 
-      <section id="experience" className="scroll-mt-24 px-4 py-16 md:px-6">
+      <section id="experience" className="scroll-mt-28 px-4 py-16 md:scroll-mt-32 md:px-6">
         <div className="mx-auto max-w-6xl">
           <SectionTitle
             className="mb-12"
@@ -537,7 +537,7 @@ const Portfolio = () => {
 
       <section
         id="leadership"
-        className="scroll-mt-24 bg-gradient-to-b from-violet-50/50 to-transparent px-4 py-16 dark:from-violet-950/30 dark:to-transparent md:px-6"
+        className="scroll-mt-28 bg-gradient-to-b from-violet-50/50 to-transparent px-4 py-16 dark:from-violet-950/30 dark:to-transparent md:scroll-mt-32 md:px-6"
       >
         <div className="mx-auto max-w-6xl">
           <SectionTitle
@@ -586,7 +586,7 @@ const Portfolio = () => {
         </div>
       </section>
 
-      <section id="projects" className="scroll-mt-24 px-4 py-16 md:px-6">
+      <section id="projects" className="scroll-mt-28 px-4 py-16 md:scroll-mt-32 md:px-6">
         <div className="mx-auto max-w-6xl">
           <SectionTitle
             className="mb-12"
@@ -680,7 +680,7 @@ const Portfolio = () => {
 
       <footer
         id="connect"
-        className="scroll-mt-24 border-t border-rose-100 bg-white/60 px-4 py-14 backdrop-blur-md dark:border-white/10 dark:bg-slate-950/70 md:px-6"
+        className="scroll-mt-28 border-t border-rose-100 bg-white/60 px-4 py-14 backdrop-blur-md dark:border-white/10 dark:bg-slate-950/70 md:scroll-mt-32 md:px-6"
       >
         <div className="mx-auto flex max-w-6xl flex-col items-center gap-8 md:flex-row md:justify-between">
           <div className="text-center md:text-left">
